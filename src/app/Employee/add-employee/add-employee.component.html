@@ -1,0 +1,62 @@
+
+<div class="container">
+  <div class="row" style="margin-top: 2%;">
+    <div class="col-sm-4">
+      <!-- <img *ngIf="PhotoFilePath" [src]=PhotoFilePath height="250px;" width="200px;"> -->
+      <svg   class="card-img-top" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+      width="50px" height="300px"
+      viewBox="0 0 172 172"
+      style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><path d="M86,172c-47.49649,0 -86,-38.50351 -86,-86v0c0,-47.49649 38.50351,-86 86,-86v0c47.49649,0 86,38.50351 86,86v0c0,47.49649 -38.50351,86 -86,86z" fill="#cccccc"></path><g fill="#000000"><path d="M85.99888,30.38667c-15.20021,0 -27.52,12.31979 -27.52,27.52v4.58667c0,15.20021 12.31979,27.52 27.52,27.52c15.20021,0 27.52,-12.31979 27.52,-27.52v-4.58667c0,-15.20021 -12.31979,-27.52 -27.52,-27.52zM85.98992,103.77333c-18.37419,0 -41.94965,9.93859 -48.73333,18.75875c-4.19221,5.45355 -0.20146,13.34792 6.67396,13.34792h84.12771c6.87541,0 10.86617,-7.89437 6.67396,-13.34792c-6.78368,-8.81557 -30.3681,-18.75875 -48.74229,-18.75875z"></path></g></g></svg>
+
+         </div>
+    <div class="col-sm-8">
+      <form [formGroup]="AddForm" (ngSubmit)="onSubmit(AddForm.value)">
+        <div class="row">
+          <div class="col-4">
+            <label> First Name</label>
+          </div>
+          <div class="col-6" style="margin-left: -16.5%;">
+     <input type="text" class="form-control Caps" placeholder="Enter FirstName" formControlName="FirstName">
+          <small class="text-danger" *ngIf="!AddForm.controls.FirstName.valid  && (AddForm.controls.FirstName.dirty || submitAttempt)">FirstName is required</small>
+        </div>
+      </div> &nbsp;
+
+    <div class="row">
+      <div class="col-4">
+        <label> Last Name</label>
+      </div>
+      <div class="col-6" style="margin-left: -16.5%;">
+ <input type="text" class="form-control Caps" placeholder="Enter LastName" formControlName="LastName">
+      <small class="text-danger" *ngIf="!AddForm.controls.LastName.valid  && (AddForm.controls.LastName.dirty || submitAttempt)">LastName is required</small>
+    </div>
+  </div> &nbsp;
+  <div class="row">
+    <div class="col-4">
+      <label> Email Address</label>
+    </div>
+    <div class="col-6" style="margin-left: -16.5%;">
+<input type="email"  class="form-control Caps" placeholder="Enter Email" formControlName="Email">
+   <small class="text-danger" *ngIf="!AddForm.controls.Email.valid  && (AddForm.controls.Email.dirty || submitAttempt)">Email is required</small>
+  </div>
+</div>&nbsp;
+  <div class="row">
+    <div class="col-4">
+      <label> uplode photo</label>
+    </div>
+    <div class="col-6" style="margin-left: -16.5%;">
+<input type="file" class="form-control Caps" (change)="uploadPhoto($event)"   formControlName="Photo">
+    <!-- <small class="text-danger" *ngIf="!AddForm.controls.Name.valid  && (AddForm.controls.Name.dirty || submitAttempt)">Name is required</small> -->
+  </div>
+</div>&nbsp;&nbsp;
+<div class="row">
+  <div class="col-4">
+  <button  type="button" type="submit" [disabled]="AddForm.invalid" class="btn btn-primary">Add Employee</button>
+  </div>
+</div>
+      </form>
+         </div>
+  </div>
+</div>
+
+
+

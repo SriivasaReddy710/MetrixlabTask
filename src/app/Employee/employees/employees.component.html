@@ -1,0 +1,21 @@
+
+ <div style="margin-top: 3%;margin-left: 77%;color: aquamarine;">Total of <strong style="color:chocolate;">{{totalrecods}}</strong> Employees</div>
+  <div class="row" style="margin: 2%;">
+
+<div class="col-3" *ngFor="let item of employeelist | paginate: { id:'paginationlist', itemsPerPage:4, currentPage: pagenumber,
+TotalItems:totalrecods }">
+  <div class="card" style="margin-top:2%;">
+    <img class="card-img-top" src="{{item.avatar}}">
+  <a (click)="Empupdate(item)" class="btn btn-primary">{{item.first_name}}{{item.last_name}}</a>
+ </div>
+</div>
+&nbsp;
+<div class="navbar" style="float: right;">
+ <pagination-controls  id="paginationlist"
+   maxSize="5"
+   directionLinks="true"
+    (pageChange)="pagenumber= $event"
+></pagination-controls></div>
+
+
+
